@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background-image: url(./img-tree.gif);
+                background-color: #d3d3d3;
+                font-family: "angs";
+                color: #000080;
+                image-rendering: pixelated;
+            }
+
+            .container {
+                margin: 0 auto;
+                width: 80%;
+            }
+
+            h1 {
+                font-size: 28px;
+                text-align: center;
+                background: #ffd700;
+                padding: 10px;
+                border: 2px solid #000080;
+            }
+
+            .marquee {
+                font-size: 24px;
+                color: red;
+            }
+
+            .content {
+                background-color: #ffffff;
+                padding: 20px;
+                border: 2px dashed #000080;
+            }
+
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            .chat-container {
+                background-color: #ffffff;
+                border: 5px solid #cccccc;
+                height: 300px;
+                overflow-y: scroll;
+                padding: 10px;
+            }
+
+            .message {
+                margin-bottom: 10px;
+            }
+
+            .user {
+                font-weight: bold;
+            }
+
+            .timestamp {
+                color: #999999;
+                font-size: 12px;
+            }
+
+            .icon-container {
+                border: 5px solid #cccccc;
+                display: flex;
+                align-items: center;
+                height: 40px;
+                margin-top: 5px;
+                background-color: #ffffff;
+                padding: 5px;
+            }
+
+            .icon-inner-container {
+                height: 100%;
+                background-color: #ffffff;
+                display: flex;
+                cursor: pointer;
+            }
+
+            .icon-inner-container img {
+                border: 1px solid black;
+                margin: 0 5px 0 5px;
+            }
+
+            .input-container {
+                display: flex;
+                margin-top: 5px;
+                height: 300px;
+            }
+
+            .input-container input[type="text"] {
+                height: 100%;
+                width: 90%;
+                background-color: #ffffff;
+                border: 5px solid #cccccc;
+                overflow-y: scroll;
+                padding: 10px;
+                flex-grow: 1;
+                font-family: "angs";
+                font-size: 28px;
+            }
+
+            .input-container input[type="submit"] {
+                padding: 8px 15px;
+                border: 5px solid #cccccc;
+                color: #000080;
+                cursor: pointer;
+                flex-grow: 1;
+                font-family: "angs";
+                font-size: 28px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome to SonThaiMaiDai!</h1>
+            <marquee
+                ><span style="color: red"><b>Breaking News</b></span
+                >: We offer 30% discount if you're from Mars!</marquee
+            >
+            <div class="chat-container">
+                <div class="message">
+                    <span class="user">John:</span> I just mean we get into
+                    arguments sometimes
+                    <span class="timestamp">12:34 PM</span>
+                </div>
+                <div class="message">
+                    <span class="user">Jane:</span> We're both very stubborn
+                    people so we can go back and forth slot you?
+                    <span class="timestamp">12:35 PM</span>
+                </div>
+            </div>
+
+            <div class="icon-container">
+                <div class="icon-inner-container">
+                    <img src="./bold-icon.svg" alt="bold" />
+                    <img src="./enlarge-text-icon.svg" alt="bold" />
+                    <img src="./font-icon.svg" alt="bold" />
+                    <img src="./font-options.svg" alt="bold" />
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Type your message..." />
+                <input type="submit" value="Send" />
+            </div>
+
+            <div
+                style="
+                    height: 43px;
+                    background: url(./afro-dance.webp);
+                    width: 100%;
+                    padding: 100px;
+                "
+            ></div>
+        </div>
+
+        <div
+            style="
+                width: fit-content;
+                display: flex;
+                align-items: center;
+                margin: 20px auto;
+            "
+        >
+            <a
+                href="./index.html"
+                style="
+                    border: 1px solid black;
+                    background-color: #ffffff;
+                    text-decoration: none;
+                    padding: 5px;
+                "
+                >back</a
+            >
+        </div>
+    </body>
+</html>
