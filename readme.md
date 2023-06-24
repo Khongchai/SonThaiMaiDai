@@ -1,21 +1,16 @@
+# Welcome to SonThaiMaiDai! 
+
+This site aims to help people become more proficient in Thai through our state-of-the-art AI-backed translator.
+
+frontend: https://khongchai.github.io/SonThaiMaiDai/frontend/index.html
+backend: https://son-thai-mai-dai.vercel.app/api
+
+# For Developers
+
+Check your dms for the OpenAI's Api key.
+
 # For Internal Use Only
 
-# Features
+# Endpoints
 
-1. Input any language and output gibberish in Thai.
-
-`/api/translate`
-
-```ts
-interface TranslateRequest {
-    input: string; // max length 50 I'm poor :(
-    langauge: CountryCodeEnum; // https://gist.github.com/kyranjamie/646386d5edc174e8b549111572897f81
-}
-
-interface TranslateResponse {
-    output: string;
-}
-```
-
-// To be continued.
-`/api/`
+TODO @Narongrit define endpoints name, input, and output. Use TypeScript's type.

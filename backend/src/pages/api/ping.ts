@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 
 type Data = {
-  thaiTranslator: string
+  data: string
 }
 
 export default function handler(
@@ -12,11 +12,6 @@ export default function handler(
 ) {
   if(req.method == "GET")
   {
-    req.query
-    res.status(200).json({ thaiTranslator :  'John Doe' })
+    res.status(200).json({ data :  'Pong' })
   }  
-  else 
-  {
-      res.status(200).json({thaiTranslator : "Hello world"})
-  }
 }

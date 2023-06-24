@@ -16,12 +16,8 @@ export default async function (req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (!configuration.apiKey) {
-    res.status(500).json({
-      error: {
-        message: "OpenAI API key not configured, please follow instructions in README.md",
-      }
-    });
-    return;
+    res.status(200).json({randomOutOfRangeSentence})
+   return;
   }
 
   const sentence: string = req.body.sentence || '';
@@ -30,6 +26,12 @@ export default async function (req: NextApiRequest,
       error: {
         message: "Please input the sentence",
       }
+    });
+    return;
+  }
+  if (sentence.length >= 50){
+    res.status(200).json({
+      sentence : randomOutOfRangeSentence()
     });
     return;
   }
@@ -112,4 +114,9 @@ function generatePrompt(sentence: string): ChatCompletionMessage[] {
     }
   ];
   return chatCompletionMessage
+}
+
+function randomOutOfRangeSentence() : string {
+  let arr = ["พิมพ์ยาวเกินไอ้เหี้ยแปลไม่ไหวแล้ว","เอ้ย! พิมพ์น้อยลงหน่อยนะ แปลไม่รอดแล้วโว้ยยยยย"];
+  return arr[(Math.floor(Math.random() * arr.length))]
 }
