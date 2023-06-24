@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Configuration, OpenAIApi } from "openai";
+import customCors from './cors';
 
 export type ChatCompletionMessage = {
   role: "system" | "user" | "assistant" | "function";
@@ -15,9 +16,10 @@ const openai = new OpenAIApi(configuration);
 export default async function (req: NextApiRequest,
   res: NextApiResponse
 ) {
+  customCors(req, res);
   if (!configuration.apiKey) {
-    res.status(200).json({randomOutOfRangeSentence})
-   return;
+    res.status(200).json({ randomOutOfRangeSentence })
+    return;
   }
 
   const sentence: string = req.body.sentence || '';
@@ -29,9 +31,9 @@ export default async function (req: NextApiRequest,
     });
     return;
   }
-  if (sentence.length >= 50){
+  if (sentence.length >= 50) {
     res.status(200).json({
-      sentence : randomOutOfRangeSentence()
+      sentence: randomOutOfRangeSentence()
     });
     return;
   }
@@ -39,7 +41,7 @@ export default async function (req: NextApiRequest,
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo-16k",
       // model: "text-davinci-003",
-      messages : generatePrompt(sentence),
+      messages: generatePrompt(sentence),
       max_tokens: 100,
       temperature: 0.6
     });
@@ -109,14 +111,14 @@ function generatePrompt(sentence: string): ChatCompletionMessage[] {
       content: "กูแอบชอบมึงมานานแล้ว ไอเหี้ย"
     },
     {
-      role : "user",
-      content : sentence
+      role: "user",
+      content: sentence
     }
   ];
   return chatCompletionMessage
 }
 
-function randomOutOfRangeSentence() : string {
-  let arr = ["พิมพ์ยาวเกินไอ้เหี้ยแปลไม่ไหวแล้ว","เอ้ย! พิมพ์น้อยลงหน่อยนะ แปลไม่รอดแล้วโว้ยยยยย"];
+function randomOutOfRangeSentence(): string {
+  let arr = ["พิมพ์ยาวเกินไอ้เหี้ยแปลไม่ไหวแล้ว", "เอ้ย! พิมพ์น้อยลงหน่อยนะ แปลไม่รอดแล้วโว้ยยยยย"];
   return arr[(Math.floor(Math.random() * arr.length))]
 }

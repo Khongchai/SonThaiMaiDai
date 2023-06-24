@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Configuration, OpenAIApi } from 'openai';
+import customCors from './cors';
 
 type Data = {
   content: string;
@@ -9,6 +10,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  customCors(req, res);
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
   });
@@ -19,8 +21,9 @@ export default async function handler(
     model: 'gpt-3.5-turbo',
     max_tokens: 100,
     messages: [
-      { role: 'system', content: 
-      `
+      {
+        role: 'system', content:
+          `
      You are a ridiculous, useless, silly word-of-the-day translator. You will output a word in English and its equivalent
      in Thai. However, the meaning should not match. It should be funny.
      For example, you might return something like "ตูด, face". This is funny, because the
@@ -29,8 +32,8 @@ export default async function handler(
      your output should be in this format: "thaiWord, englishWord".
   
      Remember, the meaning must never be the real meaning!
-      ` 
-    },
+      `
+      },
       { role: 'user', content: `Word of the day for: ${today.getDay()}, ${today.getMonth()}, ${today.getFullYear()}` },
       { role: "assistant", content: "ตูด, face" },
       { role: "user", content: `Word of the day for: ${today.getDay()}, ${today.getMonth()}, ${today.getFullYear() + 1}` },
@@ -51,4 +54,3 @@ export default async function handler(
 
   res.status(200).json(responseData);
 }
- 
