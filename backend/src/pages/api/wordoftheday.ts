@@ -1,24 +1,23 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Configuration, OpenAIApi } from 'openai';
 import customCors from './cors';
+import { CommonResponse } from './types';
 
-type Data = {
-  thaiWord: string;
-  engWord: string;
-  error?: never;
-} | {
-  thaiWord?: never;
-  engWord?: never;
-  error: {
-    message: string
-  }
-};
+
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<CommonResponse>
 ) {
-  customCors(req, res);
+  if (!customCors(req, res)) {
+    return res.status(401).json({
+      error: {
+        message:
+          "Incorrect hostname"
+      }
+    })
+  }
+
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
   });
@@ -56,13 +55,14 @@ export default async function handler(
   const thaiWord = generatedWords?.[0]?.trim();
   const englishWord = generatedWords?.[1]?.trim();
 
-  if(!thaiWord || !englishWord){
+  if (!thaiWord || !englishWord) {
     return res.status(500).json({
       error: {
-      message: "Oops, something went wrong."
-    }})
+        message: "Oops, something went wrong."
+      }
+    })
   }
-  const responseData: Data = {
+  const responseData: CommonResponse = {
     thaiWord,
     engWord: englishWord
   };

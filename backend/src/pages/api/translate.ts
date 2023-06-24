@@ -16,13 +16,18 @@ const openai = new OpenAIApi(configuration);
 export default async function (req: NextApiRequest,
   res: NextApiResponse
 ) {
-  customCors(req, res);
+  console.log("About to call the CORS")
+  if(!customCors(req, res)){
+    return res.status(401).json({ error : "Incorrect hostname"})
+  }
+
   if (!configuration.apiKey) {
     res.status(200).json({ randomOutOfRangeSentence })
     return;
   }
 
   const sentence: string = req.body.sentence || '';
+  console.log(sentence)
   if (sentence.trim().length === 0) {
     res.status(400).json({
       error: {
