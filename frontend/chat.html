@@ -2,6 +2,8 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="styles.css" />
+        
+
         <style>
             * {
                 box-sizing: border-box;
@@ -124,7 +126,7 @@
                 >: We offer 30% discount if you're from Mars!</marquee
             >
 
-            <div style="display: flex;">
+            <div style="display: flex">
                 <img src="./10.gif" alt="" />
                 <img src="./13.gif" alt="" />
                 <img src="./8.gif" alt="" />
@@ -145,7 +147,9 @@
 
             <div class="icon-container">
                 <div class="icon-inner-container">
+                    <button onclick="playSound()">Send!</button>
                     <img src="./bold-icon.svg" alt="bold" />
+
                     <img src="./enlarge-text-icon.svg" alt="bold" />
                     <img src="./font-icon.svg" alt="bold" />
                     <img src="./font-options.svg" alt="bold" />
@@ -153,7 +157,7 @@
             </div>
             <div class="input-container">
                 <input type="text" placeholder="Type your message..." />
-                <input type="submit" value="Send" />
+                <input onclick="popSound()" type="submit" value="Send" />
             </div>
 
             <div
@@ -185,5 +189,17 @@
                 >back</a
             >
         </div>
+        <audio src="./lakhrkhunthrrm.mp3" autoplay loop controls></audio>
     </body>
+    <script>
+        function playSound() {
+            var audio = new Audio("./urmomyelling.mp3"); // Replace 'path/to/sound.mp3' with the actual path to your sound file
+            audio.play();
+        }
+
+        function popSound() {
+            var audio = new Audio("./pop.mp3"); // Replace 'path/to/sound.mp3' with the actual path to your sound file
+            audio.play();
+        }
+    </script>
 </html>
