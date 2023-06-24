@@ -66,22 +66,30 @@
             }
 
             .icon-container {
+                border: 5px solid #cccccc;
                 display: flex;
                 align-items: center;
-                height: 50px;
-                margin-top: 20px;
-                background-color: #cccccc;
-                padding: 10px;
+                height: 40px;
+                margin-top: 5px;
+                background-color: #ffffff;
+                padding: 5px;
             }
 
-            .icon-container img {
+            .icon-inner-container {
+                height: 100%;
+                background-color: #ffffff;
+                display: flex;
+                cursor: pointer;
+            }
+
+            .icon-inner-container img {
                 border: 1px solid black;
-                height: 50%;
+                margin: 0 5px 0 5px;
             }
 
             .input-container {
                 display: flex;
-                margin-top: 20px;
+                margin-top: 5px;
                 height: 300px;
             }
 
@@ -126,10 +134,12 @@
             </div>
 
             <div class="icon-container">
-                <img src="./bold-icon.svg" alt="bold" />
-                <img src="./enlarge-text-icon.svg" alt="bold" />
-                <img src="./font-icon.svg" alt="bold" />
-                <img src="./font-options.svg" alt="bold" />
+                <div class="icon-inner-container">
+                    <img src="./bold-icon.svg" alt="bold" />
+                    <img src="./enlarge-text-icon.svg" alt="bold" />
+                    <img src="./font-icon.svg" alt="bold" />
+                    <img src="./font-options.svg" alt="bold" />
+                </div>
             </div>
             <div class="input-container">
                 <input type="text" placeholder="Type your message..." />
@@ -145,5 +155,7 @@
                 "
             ></div>
         </div>
+
+       <div style="width: fit-content; display: flex; align-items: center; margin: 0 auto;"> <a href="./index.html" style="border: 1px solid black; background-color: #999999; text-decoration: none; padding: 5px;">back</a></div>
     </body>
 </html>
