@@ -17,3 +17,11 @@ var corsOptions = {
         }
     }
 }
+
+app.get('*', cors(corsOptions), function(req, res, next) {
+    res.json({ msg: 'This is CORS-enabled for only example.com.' })
+})
+
+app.listen(3000, () => {
+    console.log('Server started on port 3000');
+});
