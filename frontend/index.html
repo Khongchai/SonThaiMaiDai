@@ -82,11 +82,20 @@
 
       .p-ricardo-jai-gay-ray {
         animation-name: hor-movement, ver-movement;
-        animation-duration: 3.141s, 1.414s;
+        animation-duration: 4.141s, 1.414s;
         animation-iteration-count: infinite;
         animation-direction: alternate;
         animation-timing-function: linear;
         position: absolute;
+      }
+
+      .full-screen-section {
+        height: 100vh;
+        width: 100%;
+        background-repeat: repeat;
+        display: grid;
+        place-items: center;
+        position: relative;
       }
     </style>
   </head>
@@ -155,18 +164,12 @@
         </div>
       </div>
     </div>
-    <div
-      style="
-        height: 100vh;
-        width: 100%;
-        background-image: url(dark-background-tile.png);
-        background-repeat: repeat;
-        display: grid;
-        place-items: center;
-        position: relative;
-      "
+
+    <section
+      class="full-screen-section"
+      style="background-image: url(dark-background-tile.png)"
     >
-      <p style="color: red">
+      <p style="color: red; z-index: 100000">
         Can't wait to try it out? Click the button below to begin!
       </p>
       <img src="hacking.gif" style="position: absolute; top: 0; left: 0" />
@@ -190,6 +193,10 @@
         </div>
         <img src="dj-guy.gif" />
       </div>
-    </div>
+    </section>
+    <section
+      class="full-screen-section"
+      style="background-image: url(star-tile-background.png)"
+    ></section>
   </body>
 </html>
