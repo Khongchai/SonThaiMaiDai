@@ -1,159 +1,180 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <style>
-      body {
-        color: #000080;
-        image-rendering: pixelated;
-        padding: 0;
-        margin: 0;
-      }
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <style>
+            body {
+                color: #000080;
+                image-rendering: pixelated;
+                padding: 0;
+                margin: 0;
+            }
 
-      .container {
-        margin: 0 auto;
-        width: 80%;
-      }
+            .container {
+                margin: 0 auto;
+                width: 80%;
+            }
 
-      h1 {
-        font-size: 28px;
-        text-align: center;
-        background: #ffd700;
-        padding: 10px;
-        border: 2px solid #000080;
-      }
+            h1 {
+                font-size: 28px;
+                text-align: center;
+                background: #ffd700;
+                padding: 10px;
+                border: 2px solid #000080;
+            }
 
-      .marquee {
-        font-size: 24px;
-        color: red;
-      }
+            .marquee {
+                font-size: 24px;
+                color: red;
+            }
 
-      .content {
-        background-color: #ffffff;
-        padding: 20px;
-        border: 2px dashed #000080;
-      }
+            .content {
+                background-color: #ffffff;
+                padding: 20px;
+                border: 2px dashed #000080;
+            }
 
-      img {
-        display: block;
-        margin: 0 auto;
-      }
+            img {
+                display: block;
+                margin: 0 auto;
+            }
 
-      li {
-        height: 90px;
-        font-size: 1.5rem;
-        font-family: fantasy;
-        font-style: italic;
-      }
+            li {
+                height: 90px;
+                font-size: 1.5rem;
+                font-family: fantasy;
+                font-style: italic;
+            }
 
-      button {
-        font-size: 11px;
-        width: fit-content;
-        height: fit-content;
-        border-bottom: solid 1px #000;
-        border-right: solid 1px #000;
-        border-top: solid 1px #fff;
-        border-left: solid 1px #fff;
-        padding: 3px 7px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <div
-      style="background: url(background-tile.png); background-repeat: repeat"
-    >
-      <div class="container">
-        <h1>Welcome to SonThaiMaiDai!</h1>
-        <div style="text-align: center">
-          <img src="earth.gif" />
-          <h5 style="color: palevioletred">
-            <i>All are welcome...as long as you are from the government.</i>
-          </h5>
-        </div>
-        <marquee
-          ><span style="color: red"><b>Breaking News</b></span
-          >: We offer 30% discount if you're from Mars!</marquee
-        >
-        <div class="content">
-          <p>
-            Ever had trouble learning Thai? Use our AI-juiced up website to
-            power up your learning!
-          </p>
-        </div>
-      </div>
-      <div
-        style="
-          height: 43px;
-          background: url(balloons-border.gif);
-          width: 100%;
-          margin-top: 16px;
-        "
-      ></div>
-      <div>
-        <div style="width: 100%; display: grid; place-items: center">
-          <div style="display: flex; align-items: center">
-            <h2 style="height: fit-content">
-              Lost in Translation? Not Anymore! 🎉🎉
-            </h2>
-            <img
-              style="position: aboslute; right: 16px"
-              src="baby-dancing.gif"
-            />
-          </div>
-        </div>
-        <div>
-          <ul
-            style="
-              display: grid;
-              place-items: center;
-              list-style: none;
-              padding: 0;
-              margin: 0;
-            "
-          >
-            <li>Accurate!</li>
-            <li style="color: red">Fast!</li>
-            <li style="color: green">Better than Google Translate</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div
-      style="
-        height: 100vh;
-        width: 100%;
-        background-image: url(dark-background-tile.png);
-        background-repeat: repeat;
-        display: grid;
-        place-items: center;
-        position: relative;
-      "
-    >
-      <p style="color: red">
-        Can't wait to try it out? Click the button below to begin!
-      </p>
-      <img src="hacking.gif" style="position: absolute; top: 0; left: 0" />
-      <img src="g-clef.gif" style="position: absolute; bottom: 0; left: 0" />
-      <img src="g-clef.gif" style="position: absolute; bottom: 0; right: 0" />
-      <img
-        src="dancing-guy-computer.gif"
-        style="position: absolute; top: 0; right: 0"
-      />
-      <div>
+            button {
+                font-size: 11px;
+                width: fit-content;
+                height: fit-content;
+                border-bottom: solid 1px #000;
+                border-right: solid 1px #000;
+                border-top: solid 1px #fff;
+                border-left: solid 1px #fff;
+                padding: 3px 7px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
         <div
-          style="
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            align-items: center;
-          "
+            style="
+                background: url(background-tile.png);
+                background-repeat: repeat;
+            "
         >
-          <img src="arrow-right.gif" />
-          <button>Try it!</button>
+            <div class="container">
+                <h1>Welcome to SonThaiMaiDai!</h1>
+                <div style="text-align: center">
+                    <img src="earth.gif" />
+                    <h5 style="color: palevioletred">
+                        <i
+                            >All are welcome...as long as you are from the
+                            government.</i
+                        >
+                    </h5>
+                </div>
+                <marquee
+                    ><span style="color: red"><b>Breaking News</b></span
+                    >: We offer 30% discount if you're from Mars!</marquee
+                >
+                <div class="content">
+                    <p>
+                        Ever had trouble learning Thai? Use our AI-juiced up
+                        website to power up your learning!
+                    </p>
+                </div>
+            </div>
+            <div
+                style="
+                    height: 43px;
+                    background: url(balloons-border.gif);
+                    width: 100%;
+                    margin-top: 16px;
+                "
+            ></div>
+            <div>
+                <div style="width: 100%; display: grid; place-items: center">
+                    <div style="display: flex; align-items: center">
+                        <img
+                            style="position: aboslute; right: 16px"
+                            src="baby-dancing.gif"
+                        />
+                        <h2 style="height: fit-content">
+                            Lost in Translation? Not Anymore! 🎉🎉
+                        </h2>
+                        <img
+                            style="position: aboslute; right: 16px"
+                            src="baby-dancing.gif"
+                        />
+                    </div>
+                </div>
+                <div>
+                    <ul
+                        style="
+                            display: grid;
+                            place-items: center;
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+                        "
+                    >
+                        <li>Accurate!</li>
+                        <li style="color: red">Fast!</li>
+                        <li style="color: green">
+                            Better than Google Translate
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <img src="dj-guy.gif" />
-      </div>
-    </div>
-  </body>
+        <div
+            style="
+                height: 100vh;
+                width: 100%;
+                background-image: url(dark-background-tile.png);
+                background-repeat: repeat;
+                display: grid;
+                place-items: center;
+                position: relative;
+            "
+        >
+            <p style="color: red">
+                Can't wait to try it out? Click the button below to begin!
+            </p>
+            <img
+                src="hacking.gif"
+                style="position: absolute; top: 0; left: 0"
+            />
+            <img
+                src="g-clef.gif"
+                style="position: absolute; bottom: 0; left: 0"
+            />
+            <img
+                src="g-clef.gif"
+                style="position: absolute; bottom: 0; right: 0"
+            />
+            <img
+                src="dancing-guy-computer.gif"
+                style="position: absolute; top: 0; right: 0"
+            />
+            <div>
+                <div
+                    style="
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px;
+                        align-items: center;
+                    "
+                >
+                    <img src="arrow-right.gif" />
+                    <button>Try it!</button>
+                </div>
+                <img src="dj-guy.gif" />
+            </div>
+        </div>
+    </body>
 </html>
