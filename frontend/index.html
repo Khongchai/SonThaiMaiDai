@@ -97,6 +97,19 @@
         place-items: center;
         position: relative;
       }
+
+      @keyframes run-animation {
+        0% { left: 0; }
+        100% { left: calc(100vw - 100px); }
+      }
+
+      #zoomed-image {
+        height: 30%;
+        position: absolute;
+        top: 30%;
+        transform: scale(1);
+        transition: transform 0.5s;
+      }
     </style>
   </head>
   <body>
@@ -175,9 +188,15 @@
       <img src="hacking.gif" style="position: absolute; top: 0; left: 0" />
       <img src="g-clef.gif" style="position: absolute; bottom: 0; left: 0" />
       <img src="g-clef.gif" style="position: absolute; bottom: 0; right: 0" />
+      <img src="girl-run.gif" style="position: absolute; bottom: 0; left: 0; animation: run-animation 30s infinite linear;" />
+      <img src="man-run.gif" style="position: absolute; bottom: 0; left: 0; animation: run-animation 20s infinite linear;" />
+      <img src="cat-run.gif" style="position: absolute; bottom: 0; left: 0; animation: run-animation 50s infinite linear;" />
+      <img src="16.gif" style="position: absolute; bottom: 0; left: 0; animation: run-animation 70s infinite linear;" />
+      <img src="111.gif" style="height: 20%; position: absolute; top: 50%; left: 0;" />
+      <img src="yute.gif" id="zoomed-image" />
       <img
         src="dancing-guy-computer.gif"
-        style="position: absolute; top: 0; right: 0"
+        style="width: 25%; position: absolute; top: 0; right: 0"
       />
       <img src="orb.gif" style="position: absolute; top: 80%; right: 10%" />
       <div>
@@ -292,3 +311,26 @@
     </section>
   </body>
 </html>
+<script>
+   var img = document.getElementById('zoomed-image');
+      var scale = 1;
+      var zoomIn = true;
+
+      function autoZoom() {
+        if (zoomIn) {
+          scale += 3;
+        } else {
+          scale -= 0.8;
+        }
+
+        img.style.transform = 'scale(' + scale + ')';
+
+        if (scale >= 1.5) {
+          zoomIn = false;
+        } else if (scale <= 0.5) {
+          zoomIn = true;
+        }
+      }
+
+      setInterval(autoZoom, 1000);
+</script>
