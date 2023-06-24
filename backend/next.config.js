@@ -7,10 +7,7 @@ var app = express()
 const corsOptions = {
     origin: 'https://khongchai.github.io/SonThaiMaiDai', // Only allow requests
 };
-app.get('*', cors(corsOptions), function(req, res, next) {
-    res.json({ msg: 'This is CORS-enabled for only khongchai.github.io/SonThaiMaiDai' })
-});
-
+app.use(cors(corsOptions));
 app.listen(3000, () => {
     console.log('Server started on port 3000');
 });
