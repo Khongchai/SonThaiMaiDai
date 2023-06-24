@@ -3,7 +3,15 @@ import { Configuration, OpenAIApi } from 'openai';
 import customCors from './cors';
 
 type Data = {
-  content: string;
+  thaiWord: string;
+  engWord: string;
+  error?: never;
+} | {
+  thaiWord?: never;
+  engWord?: never;
+  error: {
+    message: string
+  }
 };
 
 export default async function handler(
@@ -48,8 +56,15 @@ export default async function handler(
   const thaiWord = generatedWords?.[0]?.trim();
   const englishWord = generatedWords?.[1]?.trim();
 
+  if(!thaiWord || !englishWord){
+    return res.status(500).json({
+      error: {
+      message: "Oops, something went wrong."
+    }})
+  }
   const responseData: Data = {
-    content: `${thaiWord}, ${englishWord}`,
+    thaiWord,
+    engWord: englishWord
   };
 
   res.status(200).json(responseData);
