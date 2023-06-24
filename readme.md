@@ -10,8 +10,41 @@ backend: https://son-thai-mai-dai.vercel.app/api
 
 Check your dms for the OpenAI's Api key.
 
-# For Internal Use Only
+# API Specs
 
-# Endpoints
+1. POST /api/translate
 
-TODO @Narongrit define endpoints name, input, and output. Use TypeScript's type.
+```ts
+interface TranslateRequest {
+    sentence: string; // soft-max 50 characters. (ถ้าให้เกิน 50 ได้ 200 ครับแต่จะโดนด่า)
+}
+
+interface TranslateResponse {
+    result: string; // same key as request.
+}
+```
+
+2. GET /api/ping
+
+```ts
+interface PingResponse {
+    data: "pong";
+}
+```
+
+3. GET /api/wordoftheday 
+
+```ts
+interface WordOfTheDayResponse {
+    thaiWord: string;
+    englishWord: string;
+}
+```
+
+4. GET /api/tired
+
+```ts
+interface TiredResponse {
+    sentence: string;
+}
+```
