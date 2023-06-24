@@ -45,6 +45,6 @@ interface WordOfTheDayResponse {
 
 ```ts
 interface TiredResponse {
-    sentence: string;
+    result: string;
 }
 ```
