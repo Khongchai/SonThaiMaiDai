@@ -20,7 +20,7 @@ interface TranslateRequest {
 }
 
 interface TranslateResponse {
-    sentence: string; // same key as request.
+    result: string; // same key as request.
 }
 ```
 
