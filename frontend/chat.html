@@ -6,11 +6,13 @@
             * {
                 box-sizing: border-box;
             }
+
             body {
-                background-image: url(../assest/img_tree.gif);
+                background-image: url(./img-tree.gif);
                 background-color: #d3d3d3;
-                font-family: "Courier New", Courier, monospace;
+                font-family: "angs";
                 color: #000080;
+                image-rendering: pixelated;
             }
 
             .container {
@@ -45,7 +47,7 @@
             .chat-container {
                 background-color: #ffffff;
                 border: 5px solid #cccccc;
-                height: 400px;
+                height: 300px;
                 overflow-y: scroll;
                 padding: 10px;
             }
@@ -63,10 +65,24 @@
                 font-size: 12px;
             }
 
+            .icon-container {
+                display: flex;
+                align-items: center;
+                height: 50px;
+                margin-top: 20px;
+                background-color: #cccccc;
+                padding: 10px;
+            }
+
+            .icon-container img {
+                border: 1px solid black;
+                height: 50%;
+            }
+
             .input-container {
                 display: flex;
                 margin-top: 20px;
-                height: 400px;
+                height: 300px;
             }
 
             .input-container input[type="text"] {
@@ -77,7 +93,8 @@
                 overflow-y: scroll;
                 padding: 10px;
                 flex-grow: 1;
-                font-family: "Courier New", Courier, monospace;
+                font-family: "angs";
+                font-size: 28px;
             }
 
             .input-container input[type="submit"] {
@@ -86,13 +103,14 @@
                 color: #000080;
                 cursor: pointer;
                 flex-grow: 1;
-                font-family: "Courier New", Courier, monospace;
+                font-family: "angs";
+                font-size: 28px;
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <h1>Welcome to My 90's Website!</h1>
+            <h1>Welcome to SonThaiMaiDai!</h1>
             <marquee>Breaking News: The 90's are back in style!</marquee>
             <div class="chat-container">
                 <div class="message">
@@ -107,11 +125,25 @@
                 </div>
             </div>
 
-            <div class="icon-container"></div>
+            <div class="icon-container">
+                <img src="./bold-icon.svg" alt="bold" />
+                <img src="./enlarge-text-icon.svg" alt="bold" />
+                <img src="./font-icon.svg" alt="bold" />
+                <img src="./font-options.svg" alt="bold" />
+            </div>
             <div class="input-container">
                 <input type="text" placeholder="Type your message..." />
                 <input type="submit" value="Send" />
             </div>
+
+            <div
+                style="
+                    height: 43px;
+                    background: url(./afro-dance.webp);
+                    width: 100%;
+                    padding: 100px;
+                "
+            ></div>
         </div>
     </body>
 </html>
