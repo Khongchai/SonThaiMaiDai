@@ -26,7 +26,9 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   }
 
   if (!configuration.apiKey) {
-    res.status(200).json({ randomOutOfRangeSentence });
+    res.status(401).json({ error : {
+      message : "Incorrect API Key"
+    } })
     return;
   }
 
