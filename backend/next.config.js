@@ -1,18 +1,16 @@
 /** @type {import('next').NextConfig} */
+var express = require('express')
+var cors = require('cors')
+var app = express()
 
+// Define CORS options
+const corsOptions = {
+    origin: 'https://khongchai.github.io/SonThaiMaiDai', // Only allow requests
+};
+app.get('*', cors(corsOptions), function(req, res, next) {
+    res.json({ msg: 'This is CORS-enabled for only khongchai.github.io/SonThaiMaiDai' })
+});
 
-import NextCors from 'nextjs-cors';
-
-async function handler(req, res) {
-    // Run the cors middleware
-    // nextjs-cors uses the cors package, so we invite you to check the documentation https://github.com/expressjs/cors
-    await NextCors(req, res, {
-        // Options
-        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-        origin: 'https://khongchai.github.io/SonThaiMaiDai/*',
-        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-    });
-
-    // Rest of the API logic
-    res.json({ message: 'Hello NextJs Cors!' });
-}
+app.listen(3000, () => {
+    console.log('Server started on port 3000');
+});
