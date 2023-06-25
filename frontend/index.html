@@ -136,17 +136,8 @@
             display: inline-block;
             margin-left: 10px;
             white-space: nowrap;
-            animation: marquee 10s linear infinite;
         }
-        
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
+
     </style>
 </head>
 
@@ -292,7 +283,7 @@
     </section>
     <section
       class="full-screen-section"
-      style="background-image: url(star-tile-background.png)"
+      style="background-image: url(star-tile-background.png); height: min(1050px, 100vh)"
     >
       <img
         src="spinning-ship.gif"
@@ -384,6 +375,9 @@
         </div>
       </div>
     </section>
+    <footer>
+      <div style="height: 70px"></div>
+    </footer>
     <footer style="position: fixed">
       <marquee
         ><span style="color: red; background-color: red"
@@ -416,6 +410,16 @@
 
     // Function to fetch the breaking news from the API endpoint
     window.onload = function () {
+    let breakingNewsElement = document.querySelector('.breaking-news-content');
+    let breakingNewsCache = localStorage.getItem('breakingNewsCache');
+
+    if (breakingNewsElement && breakingNewsCache) {
+      breakingNewsElement.textContent = breakingNewsCache;
+      // breaking news cache clears every 30 seconds
+      setTimeout(() => {
+        localStorage.clear("breakingNewsCache");
+      }, 30 * 1000);
+    } else {
       fetch("https://son-thai-mai-dai.vercel.app/api/breaking-news", {
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -424,22 +428,20 @@
         })
         .then(response => response.json())
         .then(data => {
-
           console.log("Data of breaking-news", data)
-    
-          var breakingNewsElement = document.querySelector('.breaking-news-content');
-          
-          if (breakingNewsElement) {
+          var breakingNews = data.breakingNews[0];
 
-            var breakingNews = data.breakingNews[0];
-          
+          if (breakingNewsElement) {
             breakingNewsElement.textContent = breakingNews;
+            localStorage.setItem('breakingNewsCache', breakingNews);
           }
         })
         .catch(error => {
           console.log('Error fetching breaking news:', error);
         });
-    }
+        }
+      }
+
 
     setInterval(autoZoom, 1000);
   </script>
