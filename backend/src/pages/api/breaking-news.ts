@@ -16,13 +16,25 @@ export default async function handler(
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   });
 
+  // if (!customCors(req, res)) {
+  //   return res.status(401).json({
+  //     error: {
+  //       message: "Incorrect hostname",
+  //     },
+  //   });
+  // }
+
   if (!customCors(req, res)) {
-    return res.status(401).json({
-      error: {
-        message: "Incorrect hostname",
+    const errorResponse: BreakingNewsResponse = {
+      breakingNews: {
+        error: {
+          message: "Incorrect hostname",
+        },
       },
-    });
+    };
+    return res.status(401).json(errorResponse);
   }
+  
 
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -50,7 +62,8 @@ export default async function handler(
   const { choices } = chat_completion.data;
   const generatedBreakingNews = choices[0].message?.content;
   console.log(generatedBreakingNews)
-  var breakingNewList : Array<string>= generatedBreakingNews?.split("\n")
+  // var breakingNewList : Array<string>= generatedBreakingNews?.split("\n")
+  var breakingNewList: Array<string> = generatedBreakingNews ? generatedBreakingNews.split("\n") : [];
   const breakingNewListExcludeEmpty = breakingNewList.filter((str) => str !== '');
   // Extracting the first word from the generated response
  const responseData: BreakingNewsResponse = {

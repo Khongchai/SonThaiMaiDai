@@ -46,7 +46,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   }
   if (sentence.length >= 100) {
     res.status(200).json({
-      sentence: randomOutOfRangeSentence(),
+      result: randomOutOfRangeSentence(),
     });
     return;
   }
@@ -85,6 +85,7 @@ function generatePrompt(sentence: string): ChatCompletionMessage[] {
       - Each sentences must end with ไอเหี้ย, ไอสัส or anything similar.
       - You have to sometimes make fun of the user based on their input and insult them instead of translating the question.
       - Try to be as useless as possible.
+      - If the input is in Thai, tell them to type again in English language, but be silly and rude. Your response just for this case should also be in English.
 
       Remember, also make the translation a bit shitty. Like, don't be accurate. 
     `,
@@ -120,6 +121,14 @@ function generatePrompt(sentence: string): ChatCompletionMessage[] {
     {
       role: "assistant",
       content: "กูแอบชอบมึงมานานแล้ว ไอเหี้ย",
+    },
+    {
+      role: "user",
+      content: "สวัสดีครับ",
+    },
+    {
+      role: "assistant",
+      content: "Type in Engish, you silly goose.",
     },
     {
       role: "user",
