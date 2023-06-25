@@ -677,6 +677,25 @@
       }
 
       window.onload = function () {
+        fetch("https://son-thai-mai-dai.vercel.app/api/wordoftheday", {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Data of word of the day: ", data);
+            // Display the Thai and English words on the HTML page
+            document.getElementById("thaiWord").innerHTML = data.thaiWord;
+            thaiWord = data.thaiWord
+
+            document.getElementById("engWord").innerHTML = data.engWord;
+            engWord = data.engWord
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
         const listOfStyle = [
           "one",
           "two",
@@ -712,46 +731,46 @@
 
         var rotateVal = 0;
 
-        var intervalId = setInterval(function () {
-          var div = document.getElementById("wordart-div"),
-            deg = rotateVal + 1;
+        // var intervalId = setInterval(function () {
+        //   var div = document.getElementById("wordart-div"),
+        //     deg = rotateVal + 1;
 
-          if (deg == 90) {
-            deg = 270;
-          } else if (deg == 360) {
-            deg = 0;
-          }
-          rotateVal = deg;
-          div.style.webkitTransform = "rotateY(" + deg + "deg)";
-          div.style.mozTransform = "rotateY(" + deg + "deg)";
-          div.style.msTransform = "rotateY(" + deg + "deg)";
-          div.style.oTransform = "rotateY(" + deg + "deg)";
-          div.style.transform = "rotateY(" + deg + "deg)";
-        }, 20);
+        //   if (deg == 90) {
+        //     deg = 270;
+        //   } else if (deg == 360) {
+        //     deg = 0;
+        //   }
+        //   rotateVal = deg;
+        //   div.style.webkitTransform = "rotateY(" + deg + "deg)";
+        //   div.style.mozTransform = "rotateY(" + deg + "deg)";
+        //   div.style.msTransform = "rotateY(" + deg + "deg)";
+        //   div.style.oTransform = "rotateY(" + deg + "deg)";
+        //   div.style.transform = "rotateY(" + deg + "deg)";
+        // }, 20);
       };
 
       //get api word of the days
-      window.onload = function () {
-        fetch("https://son-thai-mai-dai.vercel.app/api/wordoftheday", {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Data of word of the day: ", data);
-            // Display the Thai and English words on the HTML page
-            document.getElementById("thaiWord").innerHTML = data.thaiWord;
-            thaiWord = data.thaiWord
+    //   window.onload = function () {
+    //     fetch("https://son-thai-mai-dai.vercel.app/api/wordoftheday", {
+    //       headers: {
+    //         "Access-Control-Allow-Origin": "*",
+    //         "Content-Type": "application/json",
+    //       },
+    //     })
+    //       .then((response) => response.json())
+    //       .then((data) => {
+    //         console.log("Data of word of the day: ", data);
+    //         // Display the Thai and English words on the HTML page
+    //         document.getElementById("thaiWord").innerHTML = data.thaiWord;
+    //         thaiWord = data.thaiWord
 
-            document.getElementById("engWord").innerHTML = data.engWord;
-            engWord = data.engWord
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      };
+    //         document.getElementById("engWord").innerHTML = data.engWord;
+    //         engWord = data.engWord
+    //       })
+    //       .catch((error) => {
+    //         console.error("Error:", error);
+    //       });
+    //   };
     </script>
   </body>
 </html>
