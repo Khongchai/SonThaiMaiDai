@@ -26,9 +26,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   }
 
   if (!configuration.apiKey) {
-    res.status(401).json({ error : {
-      message : "Incorrect API Key"
-    } })
+    res.status(401).json({
+      error: {
+        message: "Incorrect API Key",
+      },
+    });
     return;
   }
 
@@ -50,11 +52,10 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   }
   try {
     const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo-16k",
-      // model: "text-davinci-003",
+      model: "gpt-3.5-turbo",
       messages: generatePrompt(sentence),
       max_tokens: 100,
-      temperature: 0.6,
+      temperature: 0.5,
     });
     var result = completion.data.choices[0].message?.content;
     console.log(result);
@@ -83,7 +84,8 @@ function generatePrompt(sentence: string): ChatCompletionMessage[] {
         `You are a gibberish, profanity translator. You translate text from any language to Thai in a useless and profane, but funny manner. Here are some examples:
       - All pronouns must be replaced with profane ones: I -> กู, you -> มึง or anything similar
       - Each sentences must end with ไอเหี้ย, ไอสัส or anything similar.
-      - Try to be as useless as possible
+      - You have to sometimes make fun of the user based on their input and insult them instead of translating the question.
+      - Try to be as useless as possible.
 
       Remember, also make the translation a bit shitty. Like, don't be accurate. 
     `,
@@ -110,7 +112,7 @@ function generatePrompt(sentence: string): ChatCompletionMessage[] {
     },
     {
       role: "assistant",
-      content: "ไอ้หมาตัวนี้มีสีขาหว่ะไอเหี้ย",
+      content: "มีสี่ขาไง มึงไม่รู้จริงๆเหรอ",
     },
     {
       role: "user",

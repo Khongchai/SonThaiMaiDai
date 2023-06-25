@@ -91,7 +91,7 @@
         }
         
         .full-screen-section {
-            height: min(100vh, 1080px);
+            height: 100vh;
             width: 100%;
             background-repeat: repeat;
             display: grid;
@@ -115,6 +115,38 @@
             transform: scale(1);
             transition: transform 0.5s;
         }
+        
+        .breaking-news {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            position: fixed;
+            bottom: 0%;
+            width: 100%;
+            z-index: 9999999999;
+        }
+        
+        .breaking-news-title {
+            font-size: 18px;
+        }
+        
+        .breaking-news-content {
+            display: inline-block;
+            margin-left: 10px;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 
@@ -133,80 +165,158 @@
                     <i>All are welcome...as long as you are from the government.</i>
                 </h5>
             </div>
-            <marquee><span style="color: red"><b>Breaking News</b></span>: We offer 30% discount if you're from Mars!
-            </marquee>
-            <div class="content">
-                <p>
-                    Ever had trouble learning Thai? Use our AI-juiced up website to power up your learning!
-                </p>
-            </div>
+            <marquee><span style="color: red"><b>Breaking News</b></span
+          >: We offer 30% discount if you're from Mars!
+        </marquee>
+        <div class="content">
+          <p>
+            Ever had trouble learning Thai? Use our AI-juiced up website to
+            power up your learning!
+          </p>
         </div>
-        <div style="
+      </div>
+      <div
+        style="
           height: 43px;
           background: url(balloons-border.gif);
           width: 100%;
           margin-top: 16px;
-        "></div>
+        "
+      ></div>
+      <div>
+        <div style="width: 100%; display: grid; place-items: center">
+          <div style="display: flex; align-items: center">
+            <img
+              style="position: relative; right: 16px"
+              src="baby-dancing.gif"
+            />
+            <h2 style="height: fit-content">
+              Lost in Translation? Not Anymore! 🎉🎉
+            </h2>
+            <img
+              style="position: relative; left: 16px"
+              src="baby-dancing.gif"
+            />
+          </div>
+        </div>
         <div>
-            <div style="width: 100%; display: grid; place-items: center">
-                <div style="display: flex; align-items: center">
-                    <img style="position: relative; right: 16px" src="baby-dancing.gif">
-                    <h2 style="height: fit-content">
-                        Lost in Translation? Not Anymore! 🎉🎉
-                    </h2>
-                    <img style="position: relative; left: 16px" src="baby-dancing.gif">
-                </div>
-            </div>
-            <div>
-                <ul style="
+          <ul
+            style="
               display: grid;
               place-items: center;
               list-style: none;
               padding: 0;
               margin: 0;
-            ">
-                    <li>Accurate!</li>
-                    <li style="color: red">Fast!</li>
-                    <li style="color: green">Better than Google Translate</li>
-                </ul>
-            </div>
+            "
+          >
+            <li>Accurate!</li>
+            <li style="color: red">Fast!</li>
+            <li style="color: green">Better than Google Translate</li>
+          </ul>
         </div>
+      </div>
     </div>
 
-    <section class="full-screen-section" style="background-image: url(dark-background-tile.png)">
-        <p style="color: red; z-index: 100000">
-            Can't wait to try it out? Click the button below to begin!
-        </p>
-        <img src="hacking.gif" style="position: absolute; top: 0; left: 0" />
-        <img src="g-clef.gif" style="position: absolute; bottom: 0; left: 0" />
-        <img src="g-clef.gif" style="position: absolute; bottom: 0; right: 0" />
-        <img src="girl-run.gif" style="position: absolute; bottom: 0; left: 0; animation: run-animation 30s infinite linear;" />
-        <img src="man-run.gif" style="position: absolute; bottom: 0; left: 0; animation: run-animation 20s infinite linear;" />
-        <img src="cat-run.gif" style="position: absolute; bottom: 0; left: 0; animation: run-animation 50s infinite linear;" />
-        <img src="16.gif" style="position: absolute; bottom: 0; left: 0; animation: run-animation 70s infinite linear;" />
-        <img src="111.gif" style="height: 20%; position: absolute; top: 50%; left: 0;" />
-        <img src="yute.gif" id="zoomed-image" />
-        <img src="dancing-guy-computer.gif" style="width: 25%; position: absolute; top: 0; right: 0" />
-        <img src="orb.gif" style="position: absolute; top: 80%; right: 10%" />
-        <div>
-            <div style="
+    <section
+      class="full-screen-section"
+      style="background-image: url(dark-background-tile.png)"
+    >
+      <p style="color: red; z-index: 100000">
+        Can't wait to try it out? Click the button below to begin!
+      </p>
+      <img src="hacking.gif" style="position: absolute; top: 0; left: 0" />
+      <img src="g-clef.gif" style="position: absolute; bottom: 0; left: 0" />
+      <img src="g-clef.gif" style="position: absolute; bottom: 0; right: 0" />
+      <img
+        src="girl-run.gif"
+        style="
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          animation: run-animation 30s infinite linear;
+        "
+      />
+      <img
+        src="man-run.gif"
+        style="
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          animation: run-animation 20s infinite linear;
+        "
+      />
+      <img
+        src="cat-run.gif"
+        style="
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          animation: run-animation 50s infinite linear;
+        "
+      />
+      <img
+        src="16.gif"
+        style="
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          animation: run-animation 70s infinite linear;
+        "
+      />
+      <img
+        src="111.gif"
+        style="height: 20%; position: absolute; top: 50%; left: 0"
+      />
+      <img src="yute.gif" id="zoomed-image" />
+      <img
+        src="dancing-guy-computer.gif"
+        style="width: 25%; position: absolute; top: 0; right: 0"
+      />
+      <img src="orb.gif" style="position: absolute; top: 80%; right: 10%" />
+      <div>
+        <div
+          style="
             display: flex;
             justify-content: center;
             gap: 10px;
             align-items: center;
-          ">
-                <img src="arrow-right.gif" />
-                <a href="chat.html">
-                    <button>Try it!</button>
-                </a>
-            </div>
-            <img src="dj-guy.gif" />
+          "
+        >
+          <img src="arrow-right.gif" />
+          <a href="chat.html">
+            <button>Try it!</button>
+          </a>
         </div>
+        <img src="dj-guy.gif" />
+      </div>
     </section>
-    <section class="full-screen-section" style="background-image: url(star-tile-background.png)">
-        <img src="spinning-ship.gif" style="position: absolute; bottom: 0; left: 0" />
-        <img src="spinning-ship.gif" style="position: absolute; bottom: 0; right: 0" />
-        <img src="elon-musk-dance.gif" style="position: absolute; right: 30px; top: 45%" />
+    <section
+      class="full-screen-section"
+      style="background-image: url(star-tile-background.png)"
+    >
+      <img
+        src="spinning-ship.gif"
+        style="position: absolute; bottom: 0; left: 0"
+      />
+      <img
+        src="spinning-ship.gif"
+        style="position: absolute; bottom: 0; right: 0"
+      />
+      <img
+        src="dancing-tiger.gif"
+        style="position: absolute; left: -100px; top: 45%"
+      />
+      <img
+        src="elon-musk-dance.gif"
+        style="position: absolute; right: 30px; top: 45%"
+      />
+      <div class="breaking-news">
+        <span class="breaking-news-title">Breaking News:</span>
+                <marquee behavior="scroll" direction="left" class="breaking-news-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </marquee>
+        </div>
+
         <div style="
           position: absolute;
           top: 42%;
@@ -226,7 +336,7 @@
                 <span style="color: white">AI</span>
                 <span style="color: blue">LAND</span> is the number one country. We take you to Mars!
             </p>
-            <img src="rocket-around-moon.gif" style="width: 300px" />
+            <img src="rocket-around-moon.gif" style="width: 100px" />
         </div>
         <div style="
           background-image: url(hot.gif);
@@ -255,49 +365,55 @@
                 <img src="genie.gif" />
             </div>
             <div style="display: flex">
-                <u><a style="
+                <u><a
+              style="
                 color: blue;
                 font-size: 48px;
                 width: fit-content;
                 cursor: pointer;
               "
-              href="word_of_the_day.html" 
-              >Show me!</a></u>
-                <img src="finger-pointing.gif" />
-            </div>
-            <div style="color: red; margin-top: 32px">
-                This
-                <img style="display: inline; margin: 0" src="hot.gif" /> feature is going to make your head goes 🤯🤯🤯🤯
-            </div>
+              href="word_of_the_day.html"
+              >Show me!</a
+            ></u
+          >
+          <img src="finger-pointing.gif" />
         </div>
+        <div style="color: red; margin-top: 32px">
+          This
+          <img style="display: inline; margin: 0" src="hot.gif" /> feature is
+          going to make your head goes 🤯🤯🤯🤯
+        </div>
+      </div>
     </section>
-    <footer style="position: fixed;">
-        <marquee><span style="color: red; background-color: red;"><b>Breaking News</b></span>: We offer 30% discount if you're from Mars!
-        </marquee>
+    <footer style="position: fixed">
+      <marquee
+        ><span style="color: red; background-color: red"
+          ><b>Breaking News</b></span
+        >: We offer 30% discount if you're from Mars!
+      </marquee>
     </footer>
-</body>
-<script>
-    var img = document.getElementById('zoomed-image');
+  </body>
+  <script>
+    var img = document.getElementById("zoomed-image");
     var scale = 1;
     var zoomIn = true;
 
     function autoZoom() {
-        if (zoomIn) {
-            scale += 3;
-        } else {
-            scale -= 0.8;
-        }
+      if (zoomIn) {
+        scale += 3;
+      } else {
+        scale -= 0.8;
+      }
 
-        img.style.transform = 'scale(' + scale + ')';
+      img.style.transform = "scale(" + scale + ")";
 
-        if (scale >= 1.5) {
-            zoomIn = false;
-        } else if (scale <= 0.5) {
-            zoomIn = true;
-        }
+      if (scale >= 1.5) {
+        zoomIn = false;
+      } else if (scale <= 0.5) {
+        zoomIn = true;
+      }
     }
 
     setInterval(autoZoom, 1000);
-</script>
-
+  </script>
 </html>
