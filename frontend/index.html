@@ -312,11 +312,10 @@
       />
       <div class="breaking-news">
         <span class="breaking-news-title">Breaking News:</span>
-                <marquee behavior="scroll" direction="left" class="breaking-news-content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </marquee>
-        </div>
-
+        <marquee behavior="scroll" direction="left" class="breaking-news-content">
+          Loading breaking news...
+        </marquee>
+      </div>
         <div style="
           position: absolute;
           top: 42%;
@@ -412,6 +411,34 @@
       } else if (scale <= 0.5) {
         zoomIn = true;
       }
+    }
+
+
+    // Function to fetch the breaking news from the API endpoint
+    window.onload = function () {
+      fetch("https://son-thai-mai-dai.vercel.app/api/breaking-news", {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        })
+        .then(response => response.json())
+        .then(data => {
+
+          console.log("Data of breaking-news", data)
+    
+          var breakingNewsElement = document.querySelector('.breaking-news-content');
+          
+          if (breakingNewsElement) {
+
+            var breakingNews = data.breakingNews[0];
+          
+            breakingNewsElement.textContent = breakingNews;
+          }
+        })
+        .catch(error => {
+          console.log('Error fetching breaking news:', error);
+        });
     }
 
     setInterval(autoZoom, 1000);
