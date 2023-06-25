@@ -653,7 +653,7 @@
       <section class="style-one">
         <div class="wordart" id="wordart-div">
           <h1 class="preview" id="text" data-content="CodePen">
-            Doctor a day keep apple away
+            <span id="thaiWord"></span> : <span id="engWord"></span>
           </h1>
         </div>
       </section>
@@ -714,6 +714,26 @@
           div.style.oTransform = "rotateY(" + deg + "deg)";
           div.style.transform = "rotateY(" + deg + "deg)";
         }, 20);
+      };
+
+       //get api word of the days
+      window.onload = function() {
+          fetch('https://son-thai-mai-dai.vercel.app/api/wordoftheday', {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json"
+            }
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log("Data of word of the day: ", data)
+              // Display the Thai and English words on the HTML page
+              document.getElementById('thaiWord').innerHTML = data.thaiWord;
+              document.getElementById('engWord').innerHTML = data.engWord;
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
       };
     </script>
   </body>
