@@ -1,173 +1,171 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <style>
-      body {
-        color: #000080;
-        image-rendering: pixelated;
-        padding: 0;
-        margin: 0;
-      }
-
-      .container {
-        margin: 0 auto;
-        width: 80%;
-      }
-
-      h1 {
-        font-size: 28px;
-        text-align: center;
-        background: #ffd700;
-        padding: 10px;
-        border: 2px solid #000080;
-      }
-
-      .marquee {
-        font-size: 24px;
-        color: red;
-      }
-
-      .content {
-        background-color: #ffffff;
-        padding: 20px;
-        border: 2px dashed #000080;
-      }
-
-      img {
-        display: block;
-        margin: 0 auto;
-      }
-
-      li {
-        height: 90px;
-        font-size: 1.5rem;
-        font-family: fantasy;
-        font-style: italic;
-      }
-
-      button {
-        font-size: 11px;
-        width: fit-content;
-        height: fit-content;
-        border-bottom: solid 1px #000;
-        border-right: solid 1px #000;
-        border-top: solid 1px #fff;
-        border-left: solid 1px #fff;
-        padding: 3px 7px;
-        cursor: pointer;
-      }
-
-      .p-ricardo-jai-gay-ray {
-        position: absolute;
-      }
-
-      @keyframes hor-movement {
-        from {
-          margin-left: 0%;
+        body {
+            color: #000080;
+            image-rendering: pixelated;
+            padding: 0;
+            margin: 0;
         }
-        to {
-          margin-left: 100%;
+        
+        .container {
+            margin: 0 auto;
+            width: 80%;
         }
-      }
-
-      @keyframes ver-movement {
-        from {
-          margin-top: 0%;
+        
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            background: #ffd700;
+            padding: 10px;
+            border: 2px solid #000080;
         }
-        to {
-          margin-top: 100%;
+        
+        .marquee {
+            font-size: 24px;
+            color: red;
         }
-      }
-
-      .p-ricardo-jai-gay-ray {
-        animation-name: hor-movement, ver-movement;
-        animation-duration: 4.141s, 1.414s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-        animation-timing-function: linear;
-        position: absolute;
-      }
-
-      .full-screen-section {
-        height: 100vh;
-        width: 100%;
-        background-repeat: repeat;
-        display: grid;
-        place-items: center;
-        position: relative;
-      }
-      @keyframes run-animation {
-        0% {
-          left: 0;
+        
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px dashed #000080;
         }
-        100% {
-          left: calc(100vw - 100px);
+        
+        img {
+            display: block;
+            margin: 0 auto;
         }
-      }
-
-      #zoomed-image {
-        height: 30%;
-        position: absolute;
-        top: 30%;
-        transform: scale(1);
-        transition: transform 0.5s;
-      }
-
-      .breaking-news {
-        background-color: #ff0000;
-        color: #fff;
-        padding: 10px;
-        font-weight: bold;
-        text-align: center;
-        position: fixed;
-        bottom: 0%;
-        width: 100%;
-        z-index: 9999999999;
-      }
-
-      .breaking-news-title {
-        font-size: 18px;
-      }
-
-      .breaking-news-content {
-        display: inline-block;
-        margin-left: 10px;
-        white-space: nowrap;
-        animation: marquee 10s linear infinite;
-      }
-
-      @keyframes marquee {
-        0% {
-          transform: translateX(100%);
+        
+        li {
+            height: 90px;
+            font-size: 1.5rem;
+            font-family: fantasy;
+            font-style: italic;
         }
-
-        100% {
-          transform: translateX(-100%);
+        
+        button {
+            font-size: 11px;
+            width: fit-content;
+            height: fit-content;
+            border-bottom: solid 1px #000;
+            border-right: solid 1px #000;
+            border-top: solid 1px #fff;
+            border-left: solid 1px #fff;
+            padding: 3px 7px;
+            cursor: pointer;
         }
-      }
+        
+        .p-ricardo-jai-gay-ray {
+            position: absolute;
+        }
+        
+        @keyframes hor-movement {
+            from {
+                margin-left: 0%;
+            }
+            to {
+                margin-left: 100%;
+            }
+        }
+        
+        @keyframes ver-movement {
+            from {
+                margin-top: 0%;
+            }
+            to {
+                margin-top: 100%;
+            }
+        }
+        
+        .p-ricardo-jai-gay-ray {
+            animation-name: hor-movement, ver-movement;
+            animation-duration: 4.141s, 1.414s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+            position: absolute;
+        }
+        
+        .full-screen-section {
+            height: 100vh;
+            width: 100%;
+            background-repeat: repeat;
+            display: grid;
+            place-items: center;
+            position: relative;
+        }
+        
+        @keyframes run-animation {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: calc(100vw - 100px);
+            }
+        }
+        
+        #zoomed-image {
+            height: 30%;
+            position: absolute;
+            top: 30%;
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        
+        .breaking-news {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            position: fixed;
+            bottom: 0%;
+            width: 100%;
+            z-index: 9999999999;
+        }
+        
+        .breaking-news-title {
+            font-size: 18px;
+        }
+        
+        .breaking-news-content {
+            display: inline-block;
+            margin-left: 10px;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-    <div
-      style="
+<body>
+    <div style="
         position: relative;
         background: url(background-tile.png);
         background-repeat: repeat;
-      "
-    >
-      <img class="p-ricardo-jai-gay-ray" src="bavatogay-ricardo-milos.gif" />
-      <div class="container">
-        <h1>Welcome to SonThaiMaiDai!</h1>
-        <div style="text-align: center">
-          <img src="earth.gif" />
-          <h5 style="color: palevioletred">
-            <i>All are welcome...as long as you are from the government.</i>
-          </h5>
-        </div>
-        <marquee
-          ><span style="color: red"><b>Breaking News</b></span
+      ">
+        <img class="p-ricardo-jai-gay-ray" src="bavatogay-ricardo-milos.gif" />
+        <div class="container">
+            <h1>Welcome to SonThaiMaiDai!</h1>
+            <div style="text-align: center">
+                <img src="earth.gif" />
+                <h5 style="color: palevioletred">
+                    <i>All are welcome...as long as you are from the government.</i>
+                </h5>
+            </div>
+            <marquee><span style="color: red"><b>Breaking News</b></span
           >: We offer 30% discount if you're from Mars!
         </marquee>
         <div class="content">
@@ -314,17 +312,12 @@
       />
       <div class="breaking-news">
         <span class="breaking-news-title">Breaking News:</span>
-        <marquee
-          behavior="scroll"
-          direction="left"
-          class="breaking-news-content"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </marquee>
-      </div>
+                <marquee behavior="scroll" direction="left" class="breaking-news-content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </marquee>
+        </div>
 
-      <div
-        style="
+        <div style="
           position: absolute;
           top: 42%;
           right: 50%;
@@ -334,54 +327,45 @@
           transform: translateX(50%);
           text-align: center;
           font-size: 2rem;
-        "
-      >
-        <p style="color: yellow">
-          Elon Musk needs people who can speak Thai on Mars!
-        </p>
-        <p style="color: yellow">
-          <span style="color: red">TH</span>
-          <span style="color: white">AI</span>
-          <span style="color: blue">LAND</span> is the number one country. We
-          take you to Mars!
-        </p>
-        <img src="rocket-around-moon.gif" style="width: 100px" />
-      </div>
-      <div
-        style="
+        ">
+            <p style="color: yellow">
+                Elon Musk needs people who can speak Thai on Mars!
+            </p>
+            <p style="color: yellow">
+                <span style="color: red">TH</span>
+                <span style="color: white">AI</span>
+                <span style="color: blue">LAND</span> is the number one country. We take you to Mars!
+            </p>
+            <img src="rocket-around-moon.gif" style="width: 100px" />
+        </div>
+        <div style="
           background-image: url(hot.gif);
           height: 25px;
           width: 100%;
           position: absolute;
           top: 0;
-        "
-      />
-      <div
-        style="
+        " />
+        <div style="
           display: flex;
           flex-direction: column;
           height: 100%;
           align-items: center;
           margin-top: 16px;
-        "
-      >
-        <div
-          style="
+        ">
+            <div style="
             display: flex;
             gap: 10px;
             justify-content: center;
             align-items: center;
-          "
-        >
-          <img src="genie.gif" />
-          <p style="color: yellow; font-size: 40px">
-            <b> Enhance your vocabulary with our word-of-the-day feature</b>
-          </p>
-          <img src="genie.gif" />
-        </div>
-        <div style="display: flex">
-          <u
-            ><a
+          ">
+                <img src="genie.gif" />
+                <p style="color: yellow; font-size: 40px">
+                    <b> Enhance your vocabulary with our word-of-the-day feature</b>
+                </p>
+                <img src="genie.gif" />
+            </div>
+            <div style="display: flex">
+                <u><a
               style="
                 color: blue;
                 font-size: 48px;
