@@ -143,6 +143,7 @@
       <div class="icon-container">
         <div class="icon-inner-container">
           <button onclick="playSound()">Send!</button>
+          <button onclick="speakHaiFungNoi()">Sendddd!</button>
           <img src="./bold-icon.svg" alt="bold" />
 
           <img src="./enlarge-text-icon.svg" alt="bold" />
@@ -187,7 +188,11 @@
     </div>
     <audio src="./lakhrkhunthrrm.mp3" autoplay loop controls></audio>
   </body>
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=fcvU02hL"></script>
   <script>
+    responsiveVoice.setDefaultVoice("Thai Female");
+
+    let translationResult = "";
     const inputBox = document.getElementById("input-container");
     const outputBox = document.getElementById("output-container");
     const translateButton = document.getElementById("translate-button");
@@ -198,6 +203,11 @@
     function playSound() {
       var audio = new Audio("./urmomyelling.mp3"); // Replace 'path/to/sound.mp3' with the actual path to your sound file
       audio.play();
+    }
+
+    function speakHaiFungNoi() {
+      console.log("speak", translationResult);
+      responsiveVoice.speak(translationResult);
     }
 
     function fetchTranslation(input) {
@@ -261,6 +271,7 @@
 
       console.log(result.body);
       const json = await result.json();
+      translationResult = json.result;
 
       outputBox.innerHTML = json.result;
     }
