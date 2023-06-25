@@ -26,9 +26,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   }
 
   if (!configuration.apiKey) {
-    res.status(401).json({ error : {
-      message : "Incorrect API Key"
-    } })
+    res.status(401).json({
+      error: {
+        message: "Incorrect API Key",
+      },
+    });
     return;
   }
 
@@ -50,8 +52,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   }
   try {
     const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo-16k",
-      // model: "text-davinci-003",
+      model: "gpt-3.5-turbo",
       messages: generatePrompt(sentence),
       max_tokens: 100,
       temperature: 0.6,

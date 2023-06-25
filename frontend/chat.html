@@ -143,7 +143,7 @@
       <div class="icon-container">
         <div class="icon-inner-container">
           <button onclick="playSound()">Send!</button>
-          <button onclick="speakHaiFungNoi()">Sendddd!</button>
+          <button onclick="speakHaiFungNoi()">Speak!</button>
           <img src="./bold-icon.svg" alt="bold" />
 
           <img src="./enlarge-text-icon.svg" alt="bold" />
@@ -215,8 +215,8 @@
 
       if (callCount < 4) {
         return fetch(
-          "https://son-thai-mai-dai.vercel.app/api/translate",
-          // "http://localhost:3000/api/translate",
+          // "https://son-thai-mai-dai.vercel.app/api/translate",
+          "http://localhost:3000/api/translate",
           {
             method: "POST",
             headers: {
@@ -231,8 +231,8 @@
       }
 
       return fetch(
-        "https://son-thai-mai-dai.vercel.app/api/tired",
-        // "http://localhost:3000/api/tired",
+        // "https://son-thai-mai-dai.vercel.app/api/tired",
+        "http://localhost:3000/api/tired",
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
