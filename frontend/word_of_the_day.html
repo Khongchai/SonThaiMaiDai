@@ -653,7 +653,7 @@
       <section class="style-one">
         <div class="wordart" id="wordart-div">
           <h1 class="preview" id="text" data-content="CodePen">
-            <span id="thaiWord"></span> : <span id="engWord"></span>
+            <span onmouseover="speakThai()" id="thaiWord"></span> : <span onmouseover="speakEng()"" id="engWord"></span>
           </h1>
         </div>
       </section>
@@ -661,7 +661,21 @@
         <a href="index.html" class="button">Regenarate</a>
       </div>
     </main>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=fcvU02hL"></script>
     <script>
+      responsiveVoice.setDefaultVoice("Thai Female");
+
+      let thaiWord = "";
+      let engWord = "";
+
+      function speakThai() {
+        responsiveVoice.speak(thaiWord);
+      }
+
+      function speakEng() {
+        responsiveVoice.speak(engWord);
+      }
+
       window.onload = function () {
         const listOfStyle = [
           "one",
@@ -716,24 +730,27 @@
         }, 20);
       };
 
-       //get api word of the days
-      window.onload = function() {
-          fetch('https://son-thai-mai-dai.vercel.app/api/wordoftheday', {
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json"
-            }
+      //get api word of the days
+      window.onload = function () {
+        fetch("https://son-thai-mai-dai.vercel.app/api/wordoftheday", {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Data of word of the day: ", data);
+            // Display the Thai and English words on the HTML page
+            document.getElementById("thaiWord").innerHTML = data.thaiWord;
+            thaiWord = data.thaiWord
+
+            document.getElementById("engWord").innerHTML = data.engWord;
+            engWord = data.engWord
           })
-            .then(response => response.json())
-            .then(data => {
-              console.log("Data of word of the day: ", data)
-              // Display the Thai and English words on the HTML page
-              document.getElementById('thaiWord').innerHTML = data.thaiWord;
-              document.getElementById('engWord').innerHTML = data.engWord;
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
+          .catch((error) => {
+            console.error("Error:", error);
+          });
       };
     </script>
   </body>
