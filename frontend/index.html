@@ -415,10 +415,10 @@
 
     if (breakingNewsElement && breakingNewsCache) {
       breakingNewsElement.textContent = breakingNewsCache;
-      // breaking news cache clears every 30 seconds
+      // breaking news cache clears every 10 seconds
       setTimeout(() => {
         localStorage.clear("breakingNewsCache");
-      }, 30 * 1000);
+      }, 10 * 1000);
     } else {
       fetch("https://son-thai-mai-dai.vercel.app/api/breaking-news", {
           headers: {
