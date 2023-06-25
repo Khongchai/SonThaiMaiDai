@@ -143,7 +143,8 @@
       <div class="icon-container">
         <div class="icon-inner-container">
           <button onclick="playSound()">Send!</button>
-          <button onclick="speakHaiFungNoi()">Speak!</button>
+          <button onclick="speakEngHaiFungNoi()">Speak Eng!</button>
+          <button onclick="speakThaiHaiFangNoi()">Speak Thai!</button>
           <img src="./bold-icon.svg" alt="bold" />
 
           <img src="./enlarge-text-icon.svg" alt="bold" />
@@ -205,9 +206,13 @@
       audio.play();
     }
 
-    function speakHaiFungNoi() {
+    function speakEngHaiFungNoi() {
       console.log("speak", translationResult);
-      responsiveVoice.speak(translationResult);
+      responsiveVoice.speak(inputBox.value, "Thai Female");
+    }
+
+    function speakThaiHaiFangNoi() {
+      responsiveVoice.speak(translationResult, "Australian Male");
     }
 
     function fetchTranslation(input) {
