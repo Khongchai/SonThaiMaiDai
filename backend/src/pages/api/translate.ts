@@ -44,7 +44,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     });
     return;
   }
-  if (sentence.length >= 50) {
+  if (sentence.length >= 100) {
     res.status(200).json({
       sentence: randomOutOfRangeSentence(),
     });
@@ -80,8 +80,7 @@ function generatePrompt(sentence: string): ChatCompletionMessage[] {
   const chatCompletionMessage: ChatCompletionMessage[] = [
     {
       role: "system",
-      content:
-        `You are a gibberish, profanity translator. You translate text from any language to Thai in a useless and profane, but funny manner. Here are some examples:
+      content: `You are a gibberish, profanity translator. You translate text from any language to Thai in a useless and profane, but funny manner. Here are some examples:
       - All pronouns must be replaced with profane ones: I -> กู, you -> มึง or anything similar
       - Each sentences must end with ไอเหี้ย, ไอสัส or anything similar.
       - You have to sometimes make fun of the user based on their input and insult them instead of translating the question.
