@@ -4,11 +4,11 @@ import customCors from "./cors";
 import NextCors from "nextjs-cors";
 
 type BreakingNewsResponse = {
-  breakingNews : any
-}
+  breakingNews: any;
+};
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<BreakingNewsResponse>,
+  res: NextApiResponse<BreakingNewsResponse>
 ) {
   await NextCors(req, res, {
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
@@ -34,7 +34,6 @@ export default async function handler(
     };
     return res.status(401).json(errorResponse);
   }
-  
 
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -42,7 +41,7 @@ export default async function handler(
   const openai = new OpenAIApi(configuration);
 
   const chat_completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+    model: "gpt-4",
     max_tokens: 100,
     messages: [
       {
@@ -56,18 +55,24 @@ export default async function handler(
      your output should be 2 breaking news separated each new by "\n" and each element less than 20 words".
   
      Remember, the news should be sth funny, useless and silly.
-      `      }]
+      `,
+      },
+    ],
   });
 
   const { choices } = chat_completion.data;
   const generatedBreakingNews = choices[0].message?.content;
-  console.log(generatedBreakingNews)
+  console.log(generatedBreakingNews);
   // var breakingNewList : Array<string>= generatedBreakingNews?.split("\n")
-  var breakingNewList: Array<string> = generatedBreakingNews ? generatedBreakingNews.split("\n") : [];
-  const breakingNewListExcludeEmpty = breakingNewList.filter((str) => str !== '');
+  var breakingNewList: Array<string> = generatedBreakingNews
+    ? generatedBreakingNews.split("\n")
+    : [];
+  const breakingNewListExcludeEmpty = breakingNewList.filter(
+    (str) => str !== ""
+  );
   // Extracting the first word from the generated response
- const responseData: BreakingNewsResponse = {
-    breakingNews : breakingNewListExcludeEmpty 
+  const responseData: BreakingNewsResponse = {
+    breakingNews: breakingNewListExcludeEmpty,
   };
   res.status(200).json(responseData);
 }

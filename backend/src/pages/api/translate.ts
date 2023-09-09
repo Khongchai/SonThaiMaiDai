@@ -52,7 +52,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   }
   try {
     const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages: generatePrompt(sentence),
       max_tokens: 100,
       temperature: 0.5,

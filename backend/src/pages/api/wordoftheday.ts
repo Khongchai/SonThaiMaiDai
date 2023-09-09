@@ -6,7 +6,7 @@ import NextCors from "nextjs-cors";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<CommonResponse>,
+  res: NextApiResponse<CommonResponse>
 ) {
   await NextCors(req, res, {
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
@@ -29,7 +29,7 @@ export default async function handler(
   const today = new Date();
 
   const chat_completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+    model: "gpt-4",
     max_tokens: 100,
     messages: [
       {
@@ -47,16 +47,14 @@ export default async function handler(
       },
       {
         role: "user",
-        content:
-          `Word of the day for: ${today.getDay()}, ${today.getMonth()}, ${today.getFullYear()}`,
+        content: `Word of the day for: ${today.getDay()}, ${today.getMonth()}, ${today.getFullYear()}`,
       },
       { role: "assistant", content: "ตูด, face" },
       {
         role: "user",
-        content:
-          `Word of the day for: ${today.getDay()}, ${today.getMonth()}, ${
-            today.getFullYear() + 1
-          }`,
+        content: `Word of the day for: ${today.getDay()}, ${today.getMonth()}, ${
+          today.getFullYear() + 1
+        }`,
       },
     ],
   });
